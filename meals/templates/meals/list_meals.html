@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Список приёмов пищи</h2>
+<ul>
+{% for meal in meals %}
+    <li>
+        {{ meal.name }} — {{ meal.calories }} ккал
+        <a href="{% url 'detail_meal' meal.id %}">Детали</a>
+        <a href="{% url 'delete_meal' meal.id %}">Удалить</a>
+        <a href="{% url 'counting_meal' meal.id %}">Посчитать калории</a>
+    </li>
+{% empty %}
+    <li>Нет добавленных блюд.</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'create_meal' %}">Добавить блюдо</a>
+</body>
+</html>

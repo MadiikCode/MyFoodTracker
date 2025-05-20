@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Добавить приём пищи</title>
+</head>
+<body>
+    <h2>Добавить приём пищи</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- ⬅️ Вот это выводит все поля формы -->
+        <button type="submit">Сохранить</button>
+    </form>
+
+    <a href="{% url 'meals' %}">Назад к списку</a>
+</body>
+</html>
